@@ -1,0 +1,149 @@
+/*------ body ----*/
+.cabecalhoPrincipal .container {
+    display: flex;
+    align-items: center; /*itens de alinhamento bem no centro*/
+    justify-content: space-between; /*justificar conteudo - itens distribuido uniformente na linha*/
+}
+
+.cabecalhoPrincipal-nav{
+    display: flex;
+}
+
+/*----footer ---*/
+.rodapePrincipal-patrocinadores .container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.rodapePrincipal-patrocinadores-list{
+    display: flex;
+    align-items: center;
+    justify-content: space-around; /*itens são distribuídos uniformemente na linha com espaço igual ao redor deles - caixinha menores mais iguais entre eles*/
+
+    width: 70%; /*falando pro navegador que ele ocupa 75% da caixa do footer, ja que o tamanho da caixa 'rodapePrincipal-patrocinadores-list 'é pequeno*/
+    margin-right: 5%;
+}
+
+.rodapePrincipal-contatoForm{
+    display: flex;
+    width: 25%; /*os outros 25% que tava faltando dos 75% = 100% do footer*/
+}
+
+.rodapePrincipal-contatoForm-fieldset{
+    display:flex; /*acabou ajudando pra deixar na mesma altura do imput e do botao*/
+}
+
+/*---- parte do Mapa de Curso ---- */
+
+.rodapePrincipal-navMap-list{
+    display: flex;
+    flex-direction: column; /*por padrão o flex-direction: row = linhas*/
+    flex-wrap: wrap; /*travar/ respeitar o limite daquele bloco, pra que quando tiver no fim passar pro lado e não continuar em baixo, quebra pra prox coluna /ele usou 250px*/
+        /*ou pode usar 'flex-flow: column wrap;' */
+    height: 260px; /*+/- tamanho de casa bloco*/
+}
+
+/* --- course grid --- */
+
+.conteudoPrincipal-cursos{
+    display: flex;
+    flex-wrap: wrap; /*pra quebrar pra proxima linha*/
+    /*justify-content: space-between;   no meu não precisa disso*/ 
+}
+
+.conteudoPrincipal-cursos-link{ /*definindo um tamanho da caixa dos links*/
+    width: 20%; /*ele botou 25%*/
+    margin-bottom: 1%;
+}
+
+/*-> cortar as margens de cada caixa
+.conteudoPrincipal-cursos-link:nth-child(4n){
+    margin-right: 0; /*da direita
+}
+
+.conteudoPrincipal-cursos-link:nth-child(4n+1){
+    margin-left: 0; /*da esquerda
+}
+*/
+
+.videoSobre .container{
+    display: flex;
+}
+
+.videoSobre-sobre{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2; /*pega o espaço que sobra e deixa certinho no texto*/
+}
+
+.videoSobre-sobre-list {
+    flex-grow: 1; /*metade do espaço pra lista*/
+}
+
+.videoSobre-video{
+    flex-grow: 1; /*metade do espaço pro video*/
+    flex-shrink: 2; /*pra diminuir 2x mais do que o 'vantagens do alurinha' */
+}
+
+/*--------- parte mobile ----*/
+@media(max-width: 768px){
+    .cabecalhoPrincipal-nav{
+        flex-direction: column;
+    }
+
+    .cabecalhoPrincipal .container{
+        flex-direction: column;
+        align-items: initial;
+        text-align : center;
+    }
+
+    /*-- parte dos cursos*/
+
+    .conteudoPrincipal-cursos{
+        flex-direction: column;
+    }
+
+    .conteudoPrincipal-cursos-link{
+        width: 100%;
+    }
+
+    /*--- mapa dos cursos*/
+
+    .rodapePrincipal-navMap-list{
+        height: auto; /*pq como definimos um height 250px.. tem que deixar automatico pra ficar bacana no mobile*/
+    }
+
+    /*-- rodape*/
+    .rodapePrincipal-patrocinadores .container{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .rodapePrincipal-patrocinadores-list{
+        margin: 0;
+        width:100%;
+    }
+
+    .rodapePrincipal-contatoForm{
+        width: 100%
+    }
+
+    .rodapePrincipal-contatoForm-fieldset{
+        justify-content: center;
+    }
+
+    /*-- flex order*/
+    .cabecalhoPrincipal-nav-link-app{
+        order: -1;
+    }
+
+    /*pra quando tiver numa certa porcentagem o 'vantagens do alurinha' ficar em baixo do video*/
+    .videoSobre .container{
+        flex-direction: column;
+    }
+
+    .videoSobre-video{
+        margin: 0 auto; /*pro video ficar alinhado certinho */
+    }
+}
